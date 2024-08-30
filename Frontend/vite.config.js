@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://erpwooyou.netlify.app',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
