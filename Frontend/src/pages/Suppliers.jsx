@@ -1,96 +1,80 @@
-import React, { useState } from 'react';
-import './Suppliers.css';  // ใช้สำหรับจัดการ CSS ของหน้านี้
+import React from 'react';
+import {
+  Typography,
+  Box,
+  Button,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  IconButton,
+} from '@mui/material';
+import { Edit, Delete } from '@mui/icons-material';
 
-function Suppliers() {
-  // ตัวอย่างข้อมูลซัพพลายเออร์
-  const [suppliers, setSuppliers] = useState([
-    {
-      id: 1,
-      company: 'Company name',
-      address: '99 Phaholyothin Road, Khlong , Khlong Luang District, Pathum Thani 12120',
-      info: {
-        phone: '086-364-7864',
-        email: 'John@gmail.com',
-      },
-      website: 'website.com', // เปลี่ยนจาก 'website' เป็น URL ที่ถูกต้อง
-    },
-    {
-      id: 2,
-      company: 'Company name',
-      address: '99 Phaholyothin Road, Khlong , Khlong Luang District, Pathum Thani 12120',
-      info: {
-        phone: '086-364-7864',
-        email: 'John@gmail.com',
-      },
-      website: 'website.com', // เปลี่ยนจาก 'website' เป็น URL ที่ถูกต้อง
-    },
-    // ข้อมูลซัพพลายเออร์อื่น ๆ
-  ]);
-
+const Suppliers = () => {
   return (
-    <div className="suppliers-page">
-      <div className="suppliers-header">
-        <h2>Suppliers</h2>
-        <div className="suppliers-stats">
-          <div>Total: 120</div>
-          <div>Changed: 11</div>
-          <div>Expired: 5</div>
-        </div>
-        <div className="suppliers-search">
-          <input type="text" placeholder="search" />
-          <select>
-            <option value="area">Area</option>
-            {/* เพิ่ม Options เพิ่มเติม */}
-          </select>
-          <select>
-            <option value="type">Type</option>
-            {/* เพิ่ม Options เพิ่มเติม */}
-          </select>
-        </div>
-      </div>
-      
-      <table className="suppliers-table">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Company</th>
-            <th>Address</th>
-            <th>Info</th>
-            <th>Website</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {suppliers.map((supplier, index) => (
-            <tr key={supplier.id}>
-              <td>{index + 1}</td>
-              <td>{supplier.company}</td>
-              <td>{supplier.address}</td>
-              <td>
-                <div>{supplier.info.phone}</div>
-                <div>{supplier.info.email}</div>
-              </td>
-              <td>
-                <a href={`http://${supplier.website}`} target="_blank" rel="noopener noreferrer">
-                  {supplier.website}
-                </a>
-              </td>
-              <td>
-                <button className="edit-btn">Edit</button>
-                <button className="delete-btn">Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      
-      <div className="suppliers-pagination">
-        <button>Previous</button>
-        <span>Page 2 of 68</span>
-        <button>Next</button>
-      </div>
-    </div>
+    <Box>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+        <Typography variant="h4">Suppliers</Typography>
+        <Button variant="contained" color="primary">+ Add</Button>
+      </Box>
+
+      <Box display="flex" justifyContent="space-between" mb={3}>
+        <Box display="flex" flexDirection="column" alignItems="center" p={2} component={Paper}>
+          <Typography variant="h6">Total</Typography>
+          <Typography variant="h4">120</Typography>
+        </Box>
+        <Box display="flex" flexDirection="column" alignItems="center" p={2} component={Paper}>
+          <Typography variant="h6">Changed</Typography>
+          <Typography variant="h4">11</Typography>
+        </Box>
+        <Box display="flex" flexDirection="column" alignItems="center" p={2} component={Paper}>
+          <Typography variant="h6">Expired</Typography>
+          <Typography variant="h4">5</Typography>
+        </Box>
+      </Box>
+
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>No</TableCell>
+              <TableCell>Company</TableCell>
+              <TableCell>Address</TableCell>
+              <TableCell>Info</TableCell>
+              <TableCell>Website</TableCell>
+              <TableCell>Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {/* Example row */}
+            <TableRow>
+              <TableCell>1</TableCell>
+              <TableCell>Company name</TableCell>
+              <TableCell>99 Phahonyothin Road, Khlong Luang District, Pathum Thani 12120</TableCell>
+              <TableCell>
+                <Typography>086-345-7894</Typography>
+                <Typography>john@gmail.com</Typography>
+              </TableCell>
+              <TableCell>website</TableCell>
+              <TableCell>
+                <IconButton color="primary">
+                  <Edit />
+                </IconButton>
+                <IconButton color="secondary">
+                  <Delete />
+                </IconButton>
+              </TableCell>
+            </TableRow>
+            {/* เพิ่มแถวเพิ่มเติมตามที่ต้องการ */}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
-}
+};
 
 export default Suppliers;

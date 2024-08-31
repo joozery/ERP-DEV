@@ -1,51 +1,46 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { useState } from 'react';
-import Home from './pages/Home'; // อิมพอร์ตหน้า Home
-import Suppliers from './pages/Suppliers'; // อิมพอร์ตหน้า Suppliers
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Drawer, AppBar, Toolbar, Container, CssBaseline } from '@mui/material';
 import Sidebar from './Components/Sidebar';
-import SupplierRow from './Components/SupplierRow';
-import SupplierTable from './Components/SupplierTable';
 import Header from './Components/Header';
+import Suppliers from './pages/Suppliers';
+import Dashboard from './Components/Dashboard/Dashboard';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-  // ดึงค่าจาก Environment Variables
-  const netlifyInternalId = import.meta.env.VITE_NETLIFY_INTERNAL_ID;
-
   return (
     <Router>
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div> */}
+      <CssBaseline /> {/* ใช้การตั้งค่าพื้นฐานสำหรับคอมโพเนนต์ MUI */}
       <div className="app-container">
-        {/* Sidebar Components*/}
-        <Sidebar/>
+        <Drawer
+          variant="permanent"
+          sx={{
+            width: 240,
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: { width: 240, boxSizing: 'border-box' },
+          }}
+        >
+          {/* คอมโพเนนต์ Sidebar สำหรับเมนูด้านซ้าย */}
+          <Sidebar />
+        </Drawer>
 
-        {/* Main Content Area */}
+        {/* พื้นที่เนื้อหาหลัก */}
         <div className="main-content">
-          {/* Header Component */}
-          <Header/>
+          <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+            <Toolbar>
+              <Header />
+            </Toolbar>
+          </AppBar>
 
-        {/* แสดงค่า Environment Variable */}
-        <p>Netlify Internal ID: {netlifyInternalId}</p>
+          {/* พื้นที่เนื้อหา */}
+          <Container sx={{ mt: 8, ml: 30 }}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/suppliers" element={<Suppliers />} />
+            </Routes>
+          </Container>
+        </div>
       </div>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/suppliers">Suppliers</Link></li>
-        </ul>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/suppliers" element={<SupplierTable />} />
-        {/* สามารถเพิ่มเส้นทางอื่น ๆ ที่ต้องการได้ที่นี่ */}
-      </Routes>
     </Router>
   );
 }
