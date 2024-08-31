@@ -23,52 +23,78 @@
 
 .activitySection {
   flex-basis: 50%;
+  margin-bottom: 2rem; /* เพิ่มระยะห่างด้านล่างเพื่อความสวยงาม */
 }
+
 .activitySection .heading {
   width: 100%;
   justify-content: space-between;
 }
+
 .activitySection .heading h1 {
   font-size: var(--h2FontSize);
   color: var(--blackColor);
   font-weight: 700;
 }
+
 .activitySection .heading .btn {
   border: 1px solid transparent;
+  background-color: var(--PrimaryColor);
+  color: var(--whiteColor);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
+
 .activitySection .heading .btn:hover {
-  border: 1px solid var(--PrimaryColor);
+  background-color: var(--HoverColor);
 }
+
 .activitySection .secContainer {
   margin-top: 1rem;
 }
+
 .activitySection .secContainer .singleCustomer {
   align-items: flex-start;
   justify-content: space-between;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: var(--itemCardColor);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.75rem;
+  transition: background-color 0.3s ease;
 }
+
+.activitySection .secContainer .singleCustomer:hover {
+  background-color: var(--itemCardHover);
+}
+
 .activitySection .secContainer .singleCustomer img {
-  width: 40px;
-  height: 40px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 2px 4px var(--itemCardColor);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-right: 1rem;
 }
+
 .activitySection .secContainer .singleCustomer .customerDetails {
   flex: 1;
 }
+
 .activitySection .secContainer .singleCustomer .customerDetails .name {
   font-size: var(--h3FontSize);
   font-weight: 600;
   color: var(--blackColor);
   display: block;
 }
+
 .activitySection .secContainer .singleCustomer .customerDetails small {
   font-weight: 500;
   color: var(--textColor);
   font-size: var(--smallFontSize);
 }
+
 .activitySection .secContainer .singleCustomer .duration {
   color: var(--textColor);
   font-weight: 500;
@@ -79,4 +105,19 @@
   .activitySection {
     width: 100%;
   }
-}/*# sourceMappingURL=activity.css.map */
+
+  .activitySection .secContainer .singleCustomer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .activitySection .secContainer .singleCustomer img {
+    margin-bottom: 0.5rem;
+  }
+
+  .activitySection .secContainer .singleCustomer .customerDetails,
+  .activitySection .secContainer .singleCustomer .duration {
+    margin: 0.25rem 0;
+  }
+}

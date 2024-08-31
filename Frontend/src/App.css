@@ -1,76 +1,358 @@
-/* General Styling */
-body {
+/* ฟอนต์ Prompt */
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap");
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: var(--bgColor);
+  box-sizing: border-box;
+  font-family: "Prompt", sans-serif;
 }
 
-.app-container {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  flex-direction: column; /* ใช้สำหรับ layout โดยไม่มี sidebar */
+:root {
+  --PrimaryColor: linear-gradient(to right, #367AA8, #67C2FF);
+  --hoverColor: #367AA8;
+  --paleGreen: hsl(96, 75%, 89%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --greyText: hsl(0, 0%, 75%);
+  --bgColor: hsl(113, 11%, 85%);
+  --inputColor: hsl(330, 12%, 97%);
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: .938rem;
+  --smallFontSize: .813rem;
+  --smallestFontSize: .75rem;
 }
 
-.main-content {
-  flex-grow: 1;
-  padding: 24px;
-  background-color: var(--bgColor);
-  overflow-y: auto;
-}
-
-/* Table Styling */
-.table-container {
-  margin-top: 20px;
-  background-color: var(--whiteColor);
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
-
-.supplier-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-.supplier-table th, .supplier-table td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-.supplier-table th {
-  background-color: #e9ecef;
-  text-align: left;
-}
-
-/* Actions Styling */
-.actions-container {
+.flex {
   display: flex;
   align-items: center;
 }
 
-.action-button {
-  margin-right: 10px;
-  padding: 6px 12px;
-  background-color: var(--primaryColor);
-  color: var(--whiteColor);
-  border: none;
-  border-radius: 4px;
+.grid {
+  display: grid;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+html {
+  font-size: 90%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.icon {
+  font-size: var(--h2FontSize);
   cursor: pointer;
 }
 
-.action-button.edit {
-  background-color: #28a745;
+img, video {
+  height: auto;
+  width: 100%;
 }
 
-.action-button.delete {
-  background-color: #dc3545;
+.message {
+  display: none;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .app-container {
-    flex-direction: column;
+.showMessage {
+  display: block;
+  color: var(--whiteColor);
+  padding: 10px;
+  background: rgb(255, 0, 0);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: var(--greyText);
+}
+
+.btn .icon {
+  margin-left: 0.5rem;
+}
+
+.btn:hover {
+  color: var(--PrimaryColor);
+  background: var(--paleGreen);
+}
+
+.loginPage, .registerPage {
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 7px 50px rgb(214, 223, 213);
+}
+
+.loginPage .container, .registerPage .container {
+  height: 75vh;
+  width: 80%; /* ปรับจาก 60% เป็น 80% เพื่อให้เข้ากับการออกแบบ */
+  max-width: 1200px; /* จำกัดความกว้างสูงสุด */
+  margin: auto;
+  justify-content: space-between;
+  border-radius: 10px;
+  background: hsl(0, 0%, 91%);
+  padding: 1rem; /* เพิ่ม padding เพื่อให้มีพื้นที่ว่าง */
+}
+
+.loginPage .container .videoDiv, .registerPage .container .videoDiv {
+  position: relative;
+  display: flex;
+  flex-basis: 50%;
+  width: 100%; /* ทำให้มีความกว้างเต็มที่ */
+  height: auto; /* ปรับให้ความสูงเป็น auto */
+  padding: 1rem; /* เพิ่ม padding เพื่อให้มีพื้นที่ว่าง */
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.loginPage .container .videoDiv video, .loginPage .container .videoDiv .footerDiv, .registerPage .container .videoDiv video, .registerPage .container .videoDiv .footerDiv {
+  position: absolute;
+}
+
+.loginPage .container .videoDiv video, .registerPage .container .videoDiv video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.loginPage .container .videoDiv .textDiv, .registerPage .container .videoDiv .textDiv {
+  position: relative;
+}
+
+.loginPage .container .videoDiv .textDiv .title, .registerPage .container .videoDiv .textDiv .title {
+  color: var(--whiteColor);
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.loginPage .container .videoDiv .textDiv p, .registerPage .container .videoDiv .textDiv p {
+  color: var(--whiteColor);
+  padding: 1rem;
+  font-weight: 400;
+}
+
+.loginPage .container .videoDiv .footerDiv, .registerPage .container .videoDiv .footerDiv {
+  bottom: 10px;
+  padding: 0 1rem;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.248);
+  left: 10px;
+  right: 10px;
+  justify-content: space-between;
+  backdrop-filter: blur(1px);
+  border-radius: 10px;
+}
+
+.loginPage .container .videoDiv .footerDiv .text, .registerPage .container .videoDiv .footerDiv .text {
+  color: var(--whiteColor);
+}
+
+.loginPage .container .videoDiv .footerDiv .btn, .registerPage .container .videoDiv .footerDiv .btn {
+  background: var(--whiteColor);
+  color: var(--PrimaryColor);
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 400;
+  transition: 0.3s ease;
+}
+
+.loginPage .container .videoDiv .footerDiv .btn:hover, .registerPage .container .videoDiv .footerDiv .btn:hover {
+  background: var(--hoverColor);
+  color: var(--blackColor);
+}
+
+.loginPage .container .formDiv, .registerPage .container .formDiv {
+  flex-basis: 50%;
+  margin: auto;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateY(-1rem);
+  max-width: 500px; /* จำกัดความกว้างของ form */
+  padding: 1rem; /* เพิ่ม padding เพื่อให้มีพื้นที่ว่าง */
+}
+
+.loginPage .container .formDiv .headerDiv, .registerPage .container .formDiv .headerDiv {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.loginPage .container .formDiv .headerDiv img, .registerPage .container .formDiv .headerDiv img {
+  width: 60px;
+  padding-bottom: 0.5rem;
+}
+
+.loginPage .container .formDiv .headerDiv h3, .registerPage .container .formDiv .headerDiv h3 {
+  font-size: 25px;
+  color: var(--blackColor);
+  font-weight: 600;
+}
+
+.loginPage .container .formDiv .form, .registerPage .container .formDiv .form {
+  gap: 1rem;
+}
+
+.loginPage .container .formDiv .form .inputDiv .icon, .registerPage .container .formDiv .form .inputDiv .icon {
+  color: var(--greyText);
+}
+
+.loginPage .container .formDiv .form .inputDiv input, .registerPage .container .formDiv .form .inputDiv input {
+  background: none;
+  outline: none;
+  border: none;
+  width: 100%; /* ปรับให้ความกว้างเต็มที่ */
+}
+
+.loginPage .container .formDiv .form .inputDiv label, .registerPage .container .formDiv .form .inputDiv label {
+  color: var(--blackColor);
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0.5rem 0;
+  display: block;
+}
+
+.loginPage .container .formDiv .form .inputDiv .input, .registerPage .container .formDiv .form .inputDiv .input {
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--inputColor);
+  border-radius: 10px;
+}
+
+.loginPage .container .formDiv .form .btn, .registerPage .container .formDiv .form .btn {
+  padding: 0.8rem;
+  background: var(--PrimaryColor);
+  border-radius: 10px;
+  color: var(--whiteColor);
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  font-size: 16px;
+  width: 100%;
+  gap: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.loginPage .container .formDiv .form .btn .icon, .registerPage .container .formDiv .form .btn .icon {
+  font-size: 25px;
+  transition: 0.3s ease;
+}
+
+.loginPage .container .formDiv .form .btn:hover, .registerPage .container .formDiv .form .btn:hover {
+  background: var(--hoverColor);
+  color: var(--blackColor);
+}
+
+.loginPage .container .formDiv .forgotPassword, .registerPage .container .formDiv .forgotPassword {
+  font-size: var(--smallFontSize);
+  font-weight: 500;
+  color: var(--greyText);
+  text-align: center;
+}
+
+.loginPage .container .formDiv .forgotPassword a, .registerPage .container .formDiv .forgotPassword a {
+  color: var(--PrimaryColor);
+}
+
+.loginPage .container .formDiv .footerDiv, .registerPage .container .formDiv .footerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.loginPage .container .formDiv .footerDiv a, .registerPage .container .formDiv .footerDiv a {
+  color: var(--PrimaryColor);
+  transition: 0.3s ease;
+}
+
+.loginPage .container .formDiv .footerDiv a:hover, .registerPage .container .formDiv .footerDiv a:hover {
+  color: var(--hoverColor);
+}
+
+.loginPage .container .formDiv .footerDiv .registerDiv, .registerPage .container .formDiv .footerDiv .registerDiv {
+  font-size: var(--smallFontSize);
+  color: var(--greyText);
+}
+
+.loginPage .container .formDiv .footerDiv .loginDiv, .registerPage .container .formDiv .footerDiv .loginDiv {
+  font-size: var(--smallFontSize);
+  color: var(--greyText);
+}
+
+.loginPage .container .formDiv .footerDiv .socials span, .registerPage .container .formDiv .footerDiv .socials span {
+  color: var(--blackColor);
+}
+
+.loginPage .container .formDiv .footerDiv .socials .iconDiv, .registerPage .container .formDiv .footerDiv .socials .iconDiv {
+  background: var(--inputColor);
+  height: 45px;
+  width: 45px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  color: var(--PrimaryColor);
+}
+
+.loginPage .container .formDiv .footerDiv .socials .iconDiv:hover, .registerPage .container .formDiv .footerDiv .socials .iconDiv:hover {
+  color: var(--hoverColor);
+}
+
+@media screen and (max-width: 968px) {
+  .loginPage .container .formDiv, .registerPage .container .formDiv {
+    transform: translateY(0rem);
+    margin: 2rem auto;
+  }
+  .loginPage .container, .registerPage .container {
+    height: auto;
+    padding: 1rem;
+  }
+  .loginPage .container .videoDiv, .registerPage .container .videoDiv {
+    flex-basis: 40%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --biggestFontSize: 1.75rem;
+    --h1FontSize: 1.25rem;
+    --h2FontSize: 1rem;
+    --h3FontSize: .938rem;
+    --normalFontSize: .875rem;
+    --smallFontSize: .813rem;
+    --smallestFontSize: .75rem;
+  }
+  .loginPage .container .videoDiv, .registerPage .container .videoDiv {
+    display: none;
+  }
+  .loginPage .container .formDiv, .registerPage .container .formDiv {
+    transform: translateY(0rem);
+    margin: 2rem auto;
+  }
+  .loginPage .container, .registerPage .container {
+    height: auto;
+    padding: 1rem;
   }
 }
