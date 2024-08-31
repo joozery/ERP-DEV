@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Suppliers.css';  // ใช้สำหรับจัดการ CSS ของหน้านี้
 
 function Suppliers() {
@@ -13,7 +12,7 @@ function Suppliers() {
         phone: '086-364-7864',
         email: 'John@gmail.com',
       },
-      website: 'website',
+      website: 'website.com', // เปลี่ยนจาก 'website' เป็น URL ที่ถูกต้อง
     },
     {
       id: 2,
@@ -23,7 +22,7 @@ function Suppliers() {
         phone: '086-364-7864',
         email: 'John@gmail.com',
       },
-      website: 'website',
+      website: 'website.com', // เปลี่ยนจาก 'website' เป็น URL ที่ถูกต้อง
     },
     // ข้อมูลซัพพลายเออร์อื่น ๆ
   ]);
@@ -71,7 +70,11 @@ function Suppliers() {
                 <div>{supplier.info.phone}</div>
                 <div>{supplier.info.email}</div>
               </td>
-              <td><a href={`http://${supplier.website}`}>{supplier.website}</a></td>
+              <td>
+                <a href={`http://${supplier.website}`} target="_blank" rel="noopener noreferrer">
+                  {supplier.website}
+                </a>
+              </td>
               <td>
                 <button className="edit-btn">Edit</button>
                 <button className="delete-btn">Delete</button>
