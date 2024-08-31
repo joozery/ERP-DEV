@@ -1,47 +1,33 @@
 /* General Styling */
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f6f8;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bgColor);
 }
 
 .app-container {
   display: flex;
   height: 100vh;
   overflow: hidden;
-}
-
-.sidebar {
-  width: 240px;
-  background-color: #343a40;
-  color: white;
-  display: flex;
-  flex-direction: column;
+  flex-direction: column; /* ใช้สำหรับ layout โดยไม่มี sidebar */
 }
 
 .main-content {
   flex-grow: 1;
   padding: 24px;
-  background-color: #f4f6f8;
+  background-color: var(--bgColor);
   overflow-y: auto;
 }
 
-.header {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-}
-
+/* Table Styling */
 .table-container {
   margin-top: 20px;
-  background-color: white;
+  background-color: var(--whiteColor);
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
-/* Adjust table styling */
 .supplier-table {
   width: 100%;
   border-collapse: collapse;
@@ -58,7 +44,7 @@ body {
   text-align: left;
 }
 
-/* Adjust actions styling */
+/* Actions Styling */
 .actions-container {
   display: flex;
   align-items: center;
@@ -67,8 +53,8 @@ body {
 .action-button {
   margin-right: 10px;
   padding: 6px 12px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -82,24 +68,9 @@ body {
   background-color: #dc3545;
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .app-container {
     flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-  }
-
-  .header {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1200px) {
-  .sidebar {
-    width: 200px;
   }
 }
