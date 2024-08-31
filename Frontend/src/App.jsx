@@ -2,6 +2,10 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useState } from 'react';
 import Home from './pages/Home'; // อิมพอร์ตหน้า Home
 import Suppliers from './pages/Suppliers'; // อิมพอร์ตหน้า Suppliers
+import Sidebar from './Components/Sidebar';
+import SupplierRow from './Components/SupplierRow';
+import SupplierTable from './Components/SupplierTable';
+import Header from './Components/Header';
 import './App.css';
 
 function App() {
@@ -19,19 +23,15 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div> */}
-      <h1>ระบบ ERP</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div>
+      <div className="app-container">
+        {/* Sidebar Components*/}
+        <Sidebar/>
+
+        {/* Main Content Area */}
+        <div className="main-content">
+          {/* Header Component */}
+          <Header/>
+
         {/* แสดงค่า Environment Variable */}
         <p>Netlify Internal ID: {netlifyInternalId}</p>
       </div>
@@ -43,7 +43,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/suppliers" element={<Suppliers />} />
+        <Route path="/suppliers" element={<SupplierTable />} />
         {/* สามารถเพิ่มเส้นทางอื่น ๆ ที่ต้องการได้ที่นี่ */}
       </Routes>
     </Router>
