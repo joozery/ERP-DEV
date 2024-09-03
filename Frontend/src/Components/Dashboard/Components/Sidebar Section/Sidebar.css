@@ -1,7 +1,7 @@
 :root {
   --PrimaryColor: linear-gradient(to right, #367AA8, #67C2FF); /* แก้ไขจาก linear-gradient ธรรมดาให้แสดงทิศทาง */
-  --HoverColor: #bdf094;
-  --paleGreen: hsl(96, 75%, 89%);
+  --HoverColor:#367AA8;
+  --paleGreen: hsl(215, 60%, 56%);
   --whiteColor: hsl(0, 0%, 100%);
   --blackColor: hsl(0, 0%, 18%);
   --textColor: hsl(240, 1%, 48%);
@@ -31,9 +31,9 @@
   cursor: pointer;
 }
 .sideBar .logoDiv img {
-  max-width: 20px;
+  max-width: 120px;
   margin-right: 0.5rem;
-  background: var(--inputColor);
+  background: hsl(0deg 0% 100%);
   border-radius: 2px;
   padding: 0.2rem;
 }

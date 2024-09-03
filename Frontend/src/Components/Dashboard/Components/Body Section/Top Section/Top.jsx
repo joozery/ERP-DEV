@@ -18,8 +18,8 @@ const Top = () => {
     <div className='topSection'>
       <div className="headerSection flex">
         <div className="title">
-          <h1>Welcome to Planti.</h1>
-          <p>Hello IsraTech, Welcome back!</p>
+          <h1>ยินดีต้อนรับสู่ระบบ ERP</h1>
+          <p>Hello USER, Welcome back!</p>
         </div>
 
         <div className="searchBar flex">
@@ -40,12 +40,12 @@ const Top = () => {
       <div className="cardSection flex">
 
         <div className="rightCard flex">
-          <h1>Create and sell extraordinary products</h1>
-          <p>The world's fast growing industry today are natural made products!</p>
+          <h1>นำเข้าสินค้าเข้าคลังของคุณ</h1>
+          <p>เพิ่มรายการสินค้าของคุณ หากว่ามีการนำเข้าสินค้า</p>
 
           <div className="buttons flex">
-                <button className='btn'>Explore More</button>
-                <button className='btn transparent'>Top Sellers</button>
+                <button className='btn'>สำรวจเพิ่มเติม</button>
+                <button className='btn transparent'>สินค้าขายดี</button>
           </div>
 
           <div className="videoDiv">

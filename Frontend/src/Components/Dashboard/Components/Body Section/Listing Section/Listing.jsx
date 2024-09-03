@@ -21,7 +21,7 @@ const Listing = () => {
     <div className='lisitingSection'>
 
       <div className="heading flex">
-        <h1>My Listings</h1>
+        <h1>สินค้าที่ถูกนำเข้าล่าสุด</h1>
         <button className='btn flex'>
           See All <BsArrowRightShort className="icon"/>
         </button>
@@ -31,25 +31,25 @@ const Listing = () => {
         <div className="singleItem">
           <AiFillHeart className="icon"/>
           <img src={img} alt="Image Name" />
-          <h3>Annual Vince</h3>
+          <h3>เนื้อปาล์ม</h3>
         </div>
 
         <div className="singleItem">
           <AiOutlineHeart className="icon"/>
           <img src={img1} alt="Image Name" />
-          <h3>Coffee Plant</h3>
+          <h3>เมล็ดในปาล์ม</h3>
         </div>
 
         <div className="singleItem">
           <AiOutlineHeart className="icon"/>
           <img src={img2} alt="Image Name" />
-          <h3>Button Fern</h3>
+          <h3>Myristic Acid</h3>
         </div>
 
         <div className="singleItem">
           <AiFillHeart className="icon"/>
           <img src={img3} alt="Image Name" />
-          <h3>Spider Plant</h3>
+          <h3>Palmitic Acid</h3>
         </div>
       </div>
 

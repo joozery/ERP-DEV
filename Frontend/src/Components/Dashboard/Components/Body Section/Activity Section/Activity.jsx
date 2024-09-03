@@ -19,8 +19,8 @@ const Activity = () => {
         <div className="singleCustomer flex">
           {/* รูปภาพถูกลบออก */}
           <div className="customerDetails">
-            <span className="name">Ola Martha</span>
-            <small>Ordered a new plant</small>
+            <span className="name">นาย ศุภกร วงศรี</span>
+            <small>ได้เพิ่มรายการสินค้าเข้าคลัง</small>
           </div>
           <div className="duration">
             2 min ago
@@ -30,8 +30,8 @@ const Activity = () => {
         <div className="singleCustomer flex">
           {/* รูปภาพถูกลบออก */}
           <div className="customerDetails">
-            <span className="name">John Doe</span>
-            <small>Ordered a new plant</small>
+            <span className="name">คุณป๋อมแป๋ม</span>
+            <small>ได้นำส่งรายการใบเสนอราคาให้กับคุณ</small>
           </div>
           <div className="duration">
             5 min ago
@@ -41,8 +41,8 @@ const Activity = () => {
         <div className="singleCustomer flex">
           {/* รูปภาพถูกลบออก */}
           <div className="customerDetails">
-            <span className="name">Jane Smith</span>
-            <small>Ordered a new plant</small>
+            <span className="name">คุณมิตรชัย บัญชา</span>
+            <small>อนุญมัตรใบเสนอราคา</small>
           </div>
           <div className="duration">
             10 min ago
@@ -52,8 +52,8 @@ const Activity = () => {
         <div className="singleCustomer flex">
           {/* รูปภาพถูกลบออก */}
           <div className="customerDetails">
-            <span className="name">Tom Brown</span>
-            <small>Ordered a new plant</small>
+            <span className="name">คุณเจนจิรา วงศกร</span>
+            <small>ได้เปิดใบ PO น้ำมันปาล์ม</small>
           </div>
           <div className="duration">
             15 min ago
@@ -63,8 +63,8 @@ const Activity = () => {
         <div className="singleCustomer flex">
           {/* รูปภาพถูกลบออก */}
           <div className="customerDetails">
-            <span className="name">Emily Clark</span>
-            <small>Ordered a new plant</small>
+            <span className="name">คุณศุวิทย์ วงกร</span>
+            <small>ได้มีการเบิกสินค้าออกจากคลัง</small>
           </div>
           <div className="duration">
             20 min ago
